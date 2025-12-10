@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura Principal - Control de Equipos</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Estructura Principal</h1>
+    </header>
+
+    <div id="dashboard" class="dashboard-container">
+        <!-- JS generará el contenido aquí -->
+    </div>
+
+    <!-- MODAL 1: EQUIPOS (COMPUTADORAS) -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal')">&times;</span>
+            <h2 id="modal-title">Editar Equipo</h2>
+            <form id="computer-form">
+                <input type="hidden" id="edit-indices">
+
+                <label>Nombre (Ej: Terminal 1)</label>
+                <input type="text" id="comp-name" required>
+
+                <label>Hostname (Ej: Desktop-XYZ)</label>
+                <input type="text" id="comp-hostname" required>
+
+                <label>Tipo</label>
+                <select id="comp-type">
+                    <option value="desktop">Escritorio</option>
+                    <option value="server">Servidor</option>
+                </select>
+
+                <label class="checkbox-container">
+                    <input type="checkbox" id="comp-status">
+                    <span class="checkmark"></span>
+                    Actualizado
+                </label>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-save">Guardar</button>
+                    <button type="button" id="btn-delete" class="btn-delete">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: SEDES (NUEVO) -->
+    <div id="modal-sede" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-sede')">&times;</span>
+            <h2 id="modal-sede-title">Gestión de Sede</h2>
+            <form id="sede-form">
+                <input type="hidden" id="sede-indices"> <!-- "areaIdx,locIdx" -->
+
+                <label>Nombre de la Sede</label>
+                <input type="text" id="sede-name" placeholder="Ej: Sede Almacén" required>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-save">Guardar Sede</button>
+                    <button type="button" id="btn-delete-sede" class="btn-delete" style="display:none;">Eliminar
+                        Sede</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
